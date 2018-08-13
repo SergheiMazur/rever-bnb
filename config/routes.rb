@@ -1,18 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'games/index'
-  get 'games/show'
-  get 'games/new'
-  get 'games/create'
-  get 'games/edit'
-  get 'games/destroy'
 
-  get 'bookings/index'
-  get 'bookings/show'
-  get 'bookings/new'
-  get 'bookings/create'
-  get 'bookings/destroy'
-  get 'bookings/edit'
+
+  resources :games do
+    resources :bookings, only: [:new, :create, :show]
+  end
+
+  resources :bookings, only: [:destroy, :edit, :index]
 
   devise_for :users
   root to: 'pages#home'
