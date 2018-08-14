@@ -1,2 +1,10 @@
-<h1>Bookings#index</h1>
+<h1>bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
+<h2>Here are your bookings</h2>
+
+<% @bookings.each do |booking| %>
+  <li><%= booking.status %> <%= booking.place %></li>
+  <hr>
+  <%= link_to "Show Details", booking_path(booking) %>
+  <%= link_to "Edit", edit_booking_path(booking) %>
+  <% end %>

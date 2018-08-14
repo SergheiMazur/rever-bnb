@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   resources :games do
-    resources :bookings, only: [:new, :create, :show]
+    resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:destroy, :edit, :index]
+  resources :bookings, only: [:show, :destroy, :edit, :index]
 
   devise_for :users
   root to: 'pages#home'
