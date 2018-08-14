@@ -4,18 +4,18 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     @user = User.new
   end
 
   def new
-    @booking = booking.new
+    @booking = Booking.new
   end
 
   def create
-    @booking = booking.new(booking_params)
+    @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to game_booking_path(@booking)
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
 
   private
 
-  def game_params
-    params.require(:game).permit(:name, :rating, :description)
+  def booking_params
+    params.require(:booking).permit(:status, :place)
   end
 end
