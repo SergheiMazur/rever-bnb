@@ -6,6 +6,6 @@
   <li><%= game.name %> <%= game.rating %></li>
   <h3><% game.description %></h3>
   <hr>
-  <%= link_to "Show Details", game_path %>
-  <%= link_to "Edit", edit_game_path %>
+  <%= link_to "Show Details", game_path(game) %>
+  <%= link_to "Edit", edit_game_path(game) %>
   <% end %>
