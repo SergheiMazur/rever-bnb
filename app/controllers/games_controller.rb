@@ -25,7 +25,7 @@ class GamesController < ApplicationController
 
   def update
     @game.update(game_params)
-    redirect_to games_path(@game)
+    redirect_to game_path(@game)
   end
 
   def destroy
