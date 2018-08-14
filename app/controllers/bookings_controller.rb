@@ -1,4 +1,7 @@
 class BookingsController < ApplicationController
+  before_action :set_game, only: [:create, :new]
+
+
   def index
     @bookings = Booking.all
   end
@@ -14,8 +17,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.game = @game
     if @booking.save
-      redirect_to game_booking_path(@booking)
+      redirect_to booking_path(@booking)
     else
       render 'new'
     end
@@ -31,7 +36,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to games_path
+    redirect_to bookings_path
   end
 
   private
@@ -39,4 +44,9 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:status, :place)
   end
+
+   def set_game
+    @game = Game.find(params[:game_id])
+  end
+
 end
