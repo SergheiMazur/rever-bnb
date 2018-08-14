@@ -7,6 +7,8 @@
   <li><%= booking.status %> <%= booking.place %></li>
   <hr>
   <%= link_to "Show Details", booking_path(booking) %>
+  <%= link_to "New", edit_booking_path(booking) %>
   <%= link_to "Edit", edit_booking_path(booking) %>
+  <%= link_to "Delete", edit_booking_path(booking) %>
   <% end %>
 
