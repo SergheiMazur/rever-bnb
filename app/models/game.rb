@@ -3,5 +3,3 @@ class Game < ApplicationRecord
   belongs_to :booking
   validates :user, uniqueness: { scope: :booking }
 end
-
-#WORK!
