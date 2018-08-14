@@ -1,2 +1,19 @@
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>All bookings</h1>
+      <ul class="list-group">
+        <% @bookings.each do |booking| %>
+          <li class="list-group-item">
+            <%= booking.status %>
+            <%= booking.place %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
