@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
   belongs_to :user
-  belongs_to :booking
-  validates :user, uniqueness: { scope: :booking }
+  validates :user, presence: true, uniqueness: true
+  validates :description, presence: true
 end
