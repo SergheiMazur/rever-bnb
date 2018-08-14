@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   resources :games do
     resources :bookings, only: [:new, :create, :show]
   end
