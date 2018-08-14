@@ -1,11 +1,14 @@
 class GamesController < ApplicationController
+  before_action :set_game, only: [:edit, :update, :destroy]
+
+
   def index
     @games = Game.all
   end
 
   def show
-    @game = game.find(params[:id])
-    @user = User.new
+    @game = Game.find(params[:id])
+    @user = current_user
   end
 
   def new
@@ -14,10 +17,12 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @game.user = current_user
     if @game.save
       redirect_to game_path(@game)
     else
       render 'new'
+    end
   end
 
   def edit
@@ -37,6 +42,10 @@ class GamesController < ApplicationController
 
   def game_params
     params.require(:game).permit(:name, :rating, :description)
+  end
+
+  def set_game
+    @game = Game.find(params[:id])
   end
 
 end

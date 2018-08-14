@@ -1,4 +1,12 @@
 <h1>Games#index</h1>
 <p>Find me in app/views/games/index.html.erb</p>
 
+<h2>Here are your games</h2>
 
+<% @games.each do |game| %>
+  <li><%= game.name %> <%= game.rating %></li>
+  <h3><% game.description %></h3>
+  <hr>
+  <%= link_to "Show Details", game_path(game) %>
+  <%= link_to "Edit", edit_game_path(game) %>
+  <% end %>
