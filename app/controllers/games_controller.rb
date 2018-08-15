@@ -9,7 +9,14 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @user = current_user
-  end
+
+    if Booking.exists?(game_id: @game.id)
+      @booking = Booking.find(@game.id)
+    else
+      @booking = nil
+    end
+
+end
 
   def new
     @game = Game.new

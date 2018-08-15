@@ -6,9 +6,8 @@
 <% @bookings.each do |booking| %>
   <li><%= booking.status %> <%= booking.place %></li>
   <hr>
-  <%= link_to "Show Details", booking_path(booking) %>
-  <%= link_to "New", edit_booking_path(booking) %>
-  <%= link_to "Edit", edit_booking_path(booking) %>
-  <%= link_to "Delete", edit_booking_path(booking) %>
+  <%= link_to "Show Details", booking_path(booking),{ :class=>"btn btn-primary"} %>
+  <%= link_to "Edit", edit_booking_path(booking),{ :class=>"btn btn-primary"} %>
+  <%= link_to "Delete", booking_path(booking), { :class=>"btn btn-danger", method: :delete} %>
   <% end %>
 
