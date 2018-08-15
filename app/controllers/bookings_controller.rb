@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_game, only: [:create, :new]
   before_action :set_booking, only: [:edit, :destroy, :update]
 
