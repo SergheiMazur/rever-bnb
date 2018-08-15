@@ -1,10 +1,13 @@
 
 <h2>Here are your games</h2>
+<%= link_to "New game", new_game_path,{ :class=>"btn btn-primary"} %>
 
 <% @games.each do |game| %>
-  <li><%= game.name %> <%= game.description %></li>
-  <hr>
-  <%= link_to "Show Details", game_path(game),{ :class=>"btn btn-primary"} %>
-  <%= link_to "Edit", edit_game_path(game),{ :class=>"btn btn-primary"} %>
-  <%= link_to "Delete", game_path(game), method: :delete, :class=>"btn btn-danger" %>
+  <div class="card" style="background-color: lightgray; padding: 10px;">
+      <li style="color: green"><%= game.name %> <%= game.description %></li>
+    <%= link_to "Show Details", game_path(game),{ :class=>"btn btn-primary"} %>
+    <%= link_to "Edit", edit_game_path(game),{ :class=>"btn btn-primary"} %>
+    <%= link_to "Delete", game_path(game), method: :delete, :class=>"btn btn-danger" %>
+    <hr>
+  </div>
 <% end %>
