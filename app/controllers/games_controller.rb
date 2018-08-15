@@ -16,7 +16,7 @@ class GamesController < ApplicationController
     @user = current_user
 
     if Booking.exists?(game_id: @game.id)
-      @booking = Booking.find(@game.id)
+      @booking = Booking.find_by(game_id: @game.id)
     else
       @booking = nil
     end
