@@ -3,3 +3,12 @@
 <%= @game.name %>
 <%= @game.rating %>
 <%= @game.description %>
+<p> <%= link_to "See all games", games_path , { :class=>"btn btn-primary"}  %>
+</p>
+
+<% if @booking %>
+  <h4>Status: <span class="label label-default"> <%= @booking.status %> </span></h4>
+<% else %>
+<%= link_to "Add new booking", new_game_booking_path(@game), { :class=>"label label-default"} %>
+<% end %>
+
