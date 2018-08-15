@@ -7,6 +7,10 @@ class GamesController < ApplicationController
     render layout: 'eventually'
   end
 
+  def landing
+     render layout: 'eventually'
+  end
+
   def show
     @game = Game.find(params[:id])
     @user = current_user
@@ -17,7 +21,7 @@ class GamesController < ApplicationController
       @booking = nil
     end
 
-end
+  end
 
   def new
     @game = Game.new
