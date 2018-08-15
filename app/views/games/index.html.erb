@@ -4,7 +4,8 @@
 
 <% @games.each do |game| %>
   <div class="card" style="background-color: lightgray; padding: 10px;">
-      <li style="color: green"><%= game.name %> <%= game.description %></li>
+      <ul style="color: green"><b><%= game.name %></b></ul>
+      <ul style="color: green"><%= game.description %></ul>
     <%= link_to "Show Details", game_path(game),{ :class=>"btn btn-primary"} %>
     <%= link_to "Edit", edit_game_path(game),{ :class=>"btn btn-primary"} %>
     <%= link_to "Delete", game_path(game), method: :delete, :class=>"btn btn-danger" %>
