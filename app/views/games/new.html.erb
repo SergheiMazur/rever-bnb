@@ -1,0 +1,8 @@
+<h1>Games#new</h1>
+<p>Find me in app/views/games/new.html.erb</p>
+<%= simple_form_for @game do |f| %>
+        <%= f.input :name %>
+        <%= f.input :rating %>
+        <%= f.input :description %>
+        <%= f.submit class: 'btn btn-primary' %>
+<% end %>

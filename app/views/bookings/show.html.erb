@@ -1,0 +1,12 @@
+<h1>Bookings#show</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2><%= @booking.status %></h2>
+      <h2><%= @booking.place %></h2>
+      <p> <strong> User email:</strong> <%= @booking.user.email %> <strong>Game: </strong> <%= @booking.game.name %></h2>
+      <%= link_to "Back to all bookings", bookings_path %>
+    </div>
+  </div>
+</div>
+

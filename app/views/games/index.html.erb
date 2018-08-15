@@ -1,0 +1,13 @@
+<h2>Here are your games</h2>
+
+  <%= link_to "New", new_game_path, { :class=>"btn btn-primary"} %>
+  <hr><hr>
+
+<% @games.each do |game| %>
+  <li><%= game.name %> <%= game.rating %></li>
+  <h3><% game.description %></h3>
+  <hr>
+  <%= link_to "Show Details", game_path(game), { :class=>"btn btn-primary"}  %>
+  <%= link_to "Edit", edit_game_path(game), { :class=>"btn btn-primary"}  %>
+  <%= link_to "Delete", game_path(game), { :class=>"btn btn-danger", method: :delete}  %>
+  <% end %>
