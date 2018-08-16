@@ -4,7 +4,13 @@
 <h2>Here are your bookings</h2>
 
 <% @bookings.each do |booking| %>
-  <li><%= booking.status %> <%= booking.place %></li>
+
+ <li><%= booking.startdate.to_s %></li>
+  <li><%= booking.enddate.to_s %></li>
+  <li><%= booking.game.user.email %></li>
+  <li><%= booking.game.user.location %></li>
+
+
   <hr>
   <%= link_to "Show Details", booking_path(booking),{ :class=>"btn btn-primary"} %>
   <%= link_to "Edit", edit_booking_path(booking),{ :class=>"btn btn-primary"} %>

@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @game = Game.find(params[:game_id])
   end
 
   def create
@@ -43,7 +44,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:status, :place)
+    params.require(:booking).permit(:startdate,:enddate,:status, :place)
   end
 
    def set_game
