@@ -14,10 +14,10 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @user = current_user
 
-    if Booking.exists?(game_id: @game.id)
-      @booking = Booking.find_by(game_id: @game.id)
+    if Booking.exists?(user_id: current_user, game_id: @game.id)
+      @booking = Booking.find_by(user_id: current_user, game_id: @game.id)
     else
-      @booking = nil
+      @booking = Booking.new
     end
 
   end

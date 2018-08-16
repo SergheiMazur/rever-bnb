@@ -4,11 +4,12 @@
 <h2>Current Rentals</h2>
 
 <% @bookings.each do |booking| %>
-
+<li>User:<%= booking.user.email %></li>
  <li><%= booking.startdate.strftime("%A, %b %d") %></li>
  <li><%= booking.enddate.strftime("%A, %b %d") %></li>
-  <li><%= booking.game.user.email %></li>
-  <li><%= booking.game.user.location %></li>
+
+  <li>Seller:<%= booking.game.user.email %></li>
+  <li>Location:<%= booking.game.user.location %></li>
 
 
   <hr>
