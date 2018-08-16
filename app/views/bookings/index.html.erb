@@ -1,12 +1,12 @@
 <h1>bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
 
-<h2>Here are your bookings</h2>
+<h2>Current Rentals</h2>
 
 <% @bookings.each do |booking| %>
 
- <li><%= booking.startdate.to_s %></li>
-  <li><%= booking.enddate.to_s %></li>
+ <li><%= booking.startdate.strftime("%A, %b %d") %></li>
+ <li><%= booking.enddate.strftime("%A, %b %d") %></li>
   <li><%= booking.game.user.email %></li>
   <li><%= booking.game.user.location %></li>
 
@@ -17,3 +17,5 @@
   <%= link_to "Delete", booking_path(booking), { :class=>"btn btn-danger", method: :delete} %>
   <% end %>
 
+<h2>Past Rentals</h2>
+<!-- #Add if statement for status returned -->
