@@ -1,4 +1,7 @@
-<h1>Games#show</h1>
+<main class="container">
+  
+  
+  <h1>Games#show</h1>
 <p>Find me in app/views/games/show.html.erb</p>
 <%= @game.name %>
 <%= @game.rating %>
@@ -54,6 +57,84 @@
     </div>
   </div>
 <% end %>
+  
+  
+  
+<!--  Ali -- 
+
+  <!-- Left Column / Headphones Image<!-- Le
+  <div class="left-column">
+    <%= image_tag "dancer.png", class: "left-column" %>
+  </div>
 
 
+  <!-- Right Column -->
+  <div class="right-column">
 
+    <!-- Product Description -->
+    <div class="product-description">
+      <span>Video Game</span>
+      <h1><%=  @game.name.capitalize %></h1>
+      <p><%= @game.description %></p>
+    </div>
+
+    <section class="content">
+  <div class="cards">
+    <div class="card">
+      <div class="card__side card__side--front card__side--front-1 front-card-image">
+        <div class="card__description">
+
+            <div>
+              Seller
+            </div>
+            <div>
+              $10
+            </div>
+
+        </div>
+      </div>
+      <div class="card__side card__side--back card__side--back-1">
+        <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
+
+          </svg></div>
+          <button class="btn btn-primary book-btn">Book</button>
+      </div>
+    </div>
+        <div class="card">
+      <div class="card__side card__side--front card__side--front-1 front-card-image">
+        <div class="card__description">
+          <div>
+            Seller
+          </div>
+          <div>
+            $10
+          </div>
+        </div>
+      </div>
+      <div class="card__side card__side--back card__side--back-1">
+        <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
+
+          </svg></div>
+          <button class="btn btn-primary book-btn">Book</button>
+      </div>
+    </div>
+        <div class="card">
+      <div class="card__side card__side--front card__side--front-1 front-card-image">
+        <div class="card__description">
+          <div>
+            Seller
+          </div>
+          <div>
+            $10
+          </div>
+        </div>
+      </div>
+      <div class="card__side card__side--back card__side--back-1">
+        <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
+
+          </svg></div>
+          <button class="btn btn-primary book-btn">Book</button>
+      </div>
+    </div>
+  </div>
+</section>
