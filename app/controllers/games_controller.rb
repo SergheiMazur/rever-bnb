@@ -4,7 +4,10 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
-    render layout: 'eventually'
+  end
+
+  def landing
+     render layout: 'eventually'
   end
 
   def show
@@ -12,12 +15,12 @@ class GamesController < ApplicationController
     @user = current_user
 
     if Booking.exists?(game_id: @game.id)
-      @booking = Booking.find(@game.id)
+      @booking = Booking.find_by(game_id: @game.id)
     else
       @booking = nil
     end
 
-end
+  end
 
   def new
     @game = Game.new

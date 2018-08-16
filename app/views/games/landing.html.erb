@@ -1,0 +1,51 @@
+<%= link_to "Sign In", new_user_registration_path, class: "btn btn-primary landin_page_btn" %>
+<%= link_to "All Games", games_path, class: "btn btn-primary game_page_btn" %>
+
+<div class="video-container">
+  <video id="video" autoplay muted loop src="<%= video_path "ps.mp4" %>"></video>
+</div>
+
+<div class = "d-flex">
+
+</div>
+<header id="header">
+  <h1>Welcome to Rever</h1>
+  <p>Search for your game<br />
+  your next big thing. Brought to you by <a href="http://html5up.net">HTML5 UP</a>.</p>
+</header>
+
+<form id="signup-form" method="get" action="/games">
+  <input type="text" name="Search" id="email" placeholder="Search Here" />
+  <input type="submit" value="Search" />
+</form>
+
+
+<footer id="footer">
+  <ul class="icons">
+
+
+    <li>
+      <%= link_to "GitHub.com" do %>
+        <i class="fab fa-github"></i>
+      <% end %>
+    </li>
+
+     <li>
+      <%= link_to "twitter.com" do %>
+      <i class="fab fa-twitter"></i>
+      <% end %>
+    </li>
+     <li>
+        <%= link_to "twitter.com" do %>
+        <i class="fab fa-facebook-square"></i>
+        <% end %>
+      </li>
+
+
+
+  </ul>
+  <ul class="copyright">
+    <li>&copy; Untitled.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+  </ul>
+</footer>
+
