@@ -4,7 +4,12 @@
 <% @games.each do |game| %>
   <li><%= game.name %> <%= game.description %></li>
   <hr>
-  <%= link_to "Show Details", game_path(game),{ :class=>"btn btn-primary"} %>
-  <%= link_to "Edit", edit_game_path(game),{ :class=>"btn btn-primary"} %>
+  <div class="card">
+  <div class="card-body">
+     <%= link_to "Show Details", game_path(game),{ :class=>"btn btn-primary"} %>
+   <%= link_to "Edit", edit_game_path(game),{ :class=>"btn btn-primary"} %>
   <%= link_to "Delete", game_path(game), method: :delete, :class=>"btn btn-danger" %>
+  </div>
+</div>
+
 <% end %>
