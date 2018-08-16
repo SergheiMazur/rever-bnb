@@ -1,13 +1,22 @@
 <h1>bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
 
-<h2>Here are your bookings</h2>
+<h2>Current Rentals</h2>
 
 <% @bookings.each do |booking| %>
-  <li><%= booking.status %> <%= booking.place %></li>
+<li>User:<%= booking.user.email %></li>
+ <li><%= booking.startdate.strftime("%A, %b %d") %></li>
+ <li><%= booking.enddate.strftime("%A, %b %d") %></li>
+
+  <li>Seller:<%= booking.game.user.email %></li>
+  <li>Location:<%= booking.game.user.location %></li>
+
+
   <hr>
   <%= link_to "Show Details", booking_path(booking),{ :class=>"btn btn-primary"} %>
   <%= link_to "Edit", edit_booking_path(booking),{ :class=>"btn btn-primary"} %>
   <%= link_to "Delete", booking_path(booking), { :class=>"btn btn-danger", method: :delete} %>
   <% end %>
 
+<h2>Past Rentals</h2>
+<!-- #Add if statement for status returned -->

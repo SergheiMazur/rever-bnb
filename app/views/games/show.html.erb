@@ -1,8 +1,68 @@
-
-
 <main class="container">
+  
+  
+  <h1>Games#show</h1>
+<p>Find me in app/views/games/show.html.erb</p>
+<%= @game.name %>
+<%= @game.rating %>
+<%= @game.description %>
+<p> <%= link_to "See all games", games_path , { :class=>"btn btn-primary"}  %>
+</p>
 
-  <!-- Left Column / Headphones Image -->
+<% if @booking.persisted? %>
+  <h4>Status: <span class="label label-default"> <%= @booking.status %> </span></h4>
+<% else %>
+  <!-- Button trigger modal -->
+  <button type="button" class="label label-default" data-toggle="modal" data-target="#myModal">
+    Add New Booking
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                <h1>New Rental</h1>
+                <%= simple_form_for [@game, @booking] do |f| %>
+                <h2>Start Date</h2>
+                  <%= f.date_field :startdate %>
+                <h2>End Date</h2>
+                  <%= f.date_field :enddate %>
+                <h2>Meetup Location</h2>
+                  <%= f.input :place %>
+                <h2>Price</h2>
+                <%= @game.price %>
+                <p># insert price </p>
+                <h2>Seller</h2>
+                  <%= @game.user.email %>
+                <h2>Location</h2>
+                  <%= @game.user.location %>
+                <p>#link to map</p>
+
+
+                  <%= f.submit class: 'btn btn-primary' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+  
+  
+  
+<!--  Ali -- 
+
+  <!-- Left Column / Headphones Image<!-- Le
   <div class="left-column">
     <%= image_tag "dancer.png", class: "left-column" %>
   </div>
