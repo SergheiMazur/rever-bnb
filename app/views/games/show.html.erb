@@ -1,21 +1,17 @@
 <main class="container">
-  
-  
-  <h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
-<%= @game.name %>
-<%= @game.rating %>
-<%= @game.description %>
-<p> <%= link_to "See all games", games_path , { :class=>"btn btn-primary"}  %>
+
+
+
+<p> <%= link_to "See all games", games_path , { :class=>"btn btn-success"}  %>
 </p>
 
 <% if @booking.persisted? %>
   <h4>Status: <span class="label label-default"> <%= @booking.status %> </span></h4>
 <% else %>
   <!-- Button trigger modal -->
-  <button type="button" class="label label-default" data-toggle="modal" data-target="#myModal">
+<!--   <button type="button" class="label label-default" data-toggle="modal" data-target="#myModal">
     Add New Booking
-  </button>
+  </button> -->
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -47,7 +43,7 @@
                 <p>#link to map</p>
 
 
-                  <%= f.submit class: 'btn btn-primary' %>
+                  <%= f.submit class: 'btn btn-success' %>
                 <% end %>
               </div>
             </div>
@@ -57,10 +53,10 @@
     </div>
   </div>
 <% end %>
-  
-  
-  
-<!--  Ali -- 
+
+
+
+<!--  Ali --
 
   <!-- Left Column / Headphones Image<!-- Le
   <div class="left-column">
@@ -73,7 +69,7 @@
 
     <!-- Product Description -->
     <div class="product-description">
-      <span>Video Game</span>
+
       <h1><%=  @game.name.capitalize %></h1>
       <p><%= @game.description %></p>
     </div>
@@ -97,7 +93,7 @@
         <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
 
           </svg></div>
-          <button class="btn btn-primary book-btn">Book</button>
+          <button class="btn btn-success book-btn" type="button" class="label label-default" data-toggle="modal" data-target="#myModal">Book</button>
       </div>
     </div>
         <div class="card">
@@ -115,7 +111,7 @@
         <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
 
           </svg></div>
-          <button class="btn btn-primary book-btn">Book</button>
+          <button class="btn btn-success book-btn" type="button" class="label label-default" data-toggle="modal" data-target="#myModal">Book</button>
       </div>
     </div>
         <div class="card">
@@ -133,7 +129,7 @@
         <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
 
           </svg></div>
-          <button class="btn btn-primary book-btn">Book</button>
+          <button class="btn btn-success book-btn" type="button" class="label label-default" data-toggle="modal" data-target="#myModal">Book</button>
       </div>
     </div>
   </div>
