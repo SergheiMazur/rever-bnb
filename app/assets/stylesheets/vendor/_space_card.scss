@@ -246,11 +246,6 @@ body {
   transform: scale(1, 1)  translateZ(0);
 }
 
-.card__body {
-  display: grid;
-  padding: 0 20px;
-}
-
 .card__name {
   align-self: center;
   justify-self: center;
@@ -296,7 +291,7 @@ body {
   -webkit-transform: translateY(30%);
   transform: translateY(30%);
   display: block;
-  margin: 22px 0 16px 0;
+  margin: 22px 30px 16px 30px;
   font-size: 18px;
   font-weight: var(--fontLight);
   /*text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.35);*/
@@ -377,4 +372,9 @@ body {
   position: relative;
   text-align: center;
   color: white;
+}
+
+.card__job {
+display: grid;
+padding: 0 20px;
 }
