@@ -13,3 +13,43 @@
 
 @import "cards_ALEX";
 
+.landing_page_btn {
+  z-index: 3;
+  width: 100px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: black;
+  font-size: 18px;
+
+ a  {
+    transition: border-bottom-color 0.2s ease, color 0.2s ease;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.25);
+    color: #1cb495;
+    text-decoration: none;
+}
+&:hover {
+  text-decoration: none;
+  color: black;
+}
+}
+
+.gam_page_btn {
+  z-index: 3;
+  width: 100px;
+  position: absolute;
+  top: 38px;
+  right: 10px;
+  color: black;
+  font-size: 18px;
+  a  {
+    transition: border-bottom-color 0.2s ease, color 0.2s ease;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.25);
+    color: #1cb495;
+    text-decoration: none;
+}
+&:hover {
+  text-decoration: none;
+  color: black;
+}
+}
