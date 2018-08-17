@@ -4,8 +4,13 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <h1>Edit Game Status!</h1>
       <%= simple_form_for @booking do |f| %>
-        <button type="button" class="btn btn-info btn-filter" data-target="Check-Out">Check-Out</button>
-        <button type="button" class="btn btn-info btn-filter" data-target="Check-In">Check-In</button>
+
+        <%= link_to booking_path(@booking, { status: "accepted"}), method: :patch do %>
+          <button type="button" class="btn btn-success btn-filter">Accept</button>
+        <% end %>
+        <%= link_to booking_path(@booking, { status: "rejected"}), method: :patch do %>
+          <button type="button" class="btn btn-danger btn-filter">Reject</button>
+        <% end %>
         <button type="button" class="btn btn-info btn-filter" data-target="Contact Seller">Contact Seller</button>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>

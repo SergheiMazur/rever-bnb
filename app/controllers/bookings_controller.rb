@@ -33,8 +33,8 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    @booking.update(status: params[:status])
+    redirect_to bookings_path
   end
 
   def destroy
