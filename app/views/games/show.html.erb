@@ -16,6 +16,10 @@
         </div>
 <div class="py-2"></div>
 
+<div>
+  <%= image_tag "dancer.png", {class: "sticky-photo"}%>
+</div>
+
 <% elsif @game.name = "Super Mario" %>
 
   <div class="view hm-white-light jarallax" data-jarallax='{"speed": 0.2}' data-jarallax-video="https://www.youtube.com/watch?v=jeQAsUI2deY">
@@ -34,15 +38,17 @@
         </div>
 <div class="py-2"></div>
 
+<div>
+  <%= image_tag "mario.jpg", {class: "sticky-photo"}%>
+</div>
+
 <% end %>
 <hr>
 
 
 
 
-<div>
-  <%= image_tag "dancer.png", {class: "sticky-photo"}%>
-</div>
+
 
 <!-- <p> <%= link_to "See all games", games_path , { :class=>"btn btn-success btn_success"}  %>
 </p> -->
