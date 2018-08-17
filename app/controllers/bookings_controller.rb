@@ -27,10 +27,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.game = @game
-    if @booking.save
-      redirect_to booking_path(@booking)
+    if @booking.save!
+      redirect_to bookings_path
     else
-      render 'new'
+      render 'games/show'
     end
   end
 
