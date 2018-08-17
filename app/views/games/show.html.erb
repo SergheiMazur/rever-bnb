@@ -20,7 +20,7 @@
   <%= image_tag "dancer.png", {class: "sticky-photo"}%>
 </div>
 
-<% elsif @game.name = "Super Mario" %>
+<% elsif @game.name == "Super Mario" %>
 
   <div class="view hm-white-light jarallax" data-jarallax='{"speed": 0.2}' data-jarallax-video="https://www.youtube.com/watch?v=jeQAsUI2deY">
             <div class="full-bg-img">
@@ -68,7 +68,6 @@
 
 <!-- Product Description -->
 <div class="product-description">
-  <%=  raise %>
   <h1 style="color:white;"><%=  @game.name %></h1>
   <p style="color: white; font-size: 20px;"><%= @game.description %></p>
 </div>
