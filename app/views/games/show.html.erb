@@ -1,11 +1,52 @@
+
 <main class="container">
+<% if @game.name == "Shadow Dancer" %>
+  <div class="view hm-white-light jarallax" data-jarallax='{"speed": 0.2}' data-jarallax-video="https://www.youtube.com/watch?v=eHahEPFBSk0">
+            <div class="full-bg-img">
+                <div class="container flex-center">
+                    <div class="row">
+                        <div class="col-md-12 wow fadeIn">
+                            <div class="text-center text-danger">
+                                <h1 class="display-2 mb-2 wow fadeInDown" data-wow-delay="0.3s"></h1>
+                                <h5 class="font-up mb-3 mt-1 font-bold wow fadeInDown" style="font-weight:bold; text-shadow: 0 0 8px #FFF, 0 -2px 12px #222, 0 -5px 15px #666;" data-wow-delay="0.4s"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="py-2"></div>
+
+<% elsif @game.name = "Super Mario" %>
+
+  <div class="view hm-white-light jarallax" data-jarallax='{"speed": 0.2}' data-jarallax-video="https://www.youtube.com/watch?v=jeQAsUI2deY">
+            <div class="full-bg-img">
+                <div class="container flex-center">
+                    <div class="row">
+                        <div class="col-md-12 wow fadeIn">
+                            <div class="text-center text-danger">
+                                <h1 class="display-2 mb-2 wow fadeInDown" data-wow-delay="0.3s"></h1>
+                                <h5 class="font-up mb-3 mt-1 font-bold wow fadeInDown" style="font-weight:bold; text-shadow: 0 0 8px #FFF, 0 -2px 12px #222, 0 -5px 15px #666;" data-wow-delay="0.4s"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="py-2"></div>
+
+<% end %>
+<hr>
+
+
+
 
 <div>
   <%= image_tag "dancer.png", {class: "sticky-photo"}%>
 </div>
 
-<p> <%= link_to "See all games", games_path , { :class=>"btn btn-success btn_success"}  %>
-</p>
+<!-- <p> <%= link_to "See all games", games_path , { :class=>"btn btn-success btn_success"}  %>
+</p> -->
 
 <% if @booking.persisted? %>
   <h4>Status: <span class="label label-default"> <%= @booking.status %> </span></h4>
@@ -70,11 +111,12 @@
     <!-- Product Description -->
     <div class="product-description">
 
-      <h1><%=  @game.name %></h1>
-      <p><%= @game.description %></p>
+      <h1 style="color:white;"><%=  @game.name %></h1>
+      <p style="color: white; font-size: 20px;"><%= @game.description %></p>
     </div>
 
     <section class="content">
+      <h2 style="color: white;">List of Sellers</h2>
   <div class="cards">
     <div class="card">
       <div class="card__side card__side--front card__side--front-1 front-card-image">
@@ -83,9 +125,7 @@
             <div>
               Seller
             </div>
-            <div>
-              $10
-            </div>
+
 
         </div>
       </div>
@@ -168,3 +208,12 @@
   </div>
 
 
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script src="https://mdbootstrap.com/previews/docs/latest/js/bootstrap.min.js"></script>
+    <script src="https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js"></script>
+    <script src="https://mdbootstrap.com/previews/docs/latest/js/jarallax.js"></script>
+    <script src="https://mdbootstrap.com/previews/docs/latest/js/jarallax-video.js"></script>
+    <script>
+        new WOW().init();
+    </script>
