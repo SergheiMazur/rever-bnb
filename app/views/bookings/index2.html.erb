@@ -1,0 +1,57 @@
+  <div class="card">
+    <div class="card-head">
+      <img src="https://s5.postimg.org/wy79025cz/nike_Logo_White.png" alt="logo" class="card-logo">
+      <img src="https://s5.postimg.org/j9r8yf9gn/sws1.png" alt="Shoe" class="product-img">
+      <div class="product-detail">
+        <h2>Mario Kart 64</h2>
+      </div>
+      <span class="back-text">
+              Action - Racing
+            </span>
+    </div>
+    <div class="card-body">
+      <div class="product-desc">
+        <span class="product-title">
+                Platform<b>N64</b>
+                <span class="badge">
+                  Checked-Out
+                </span>
+        </span>
+        <span class="product-caption">
+               <p> Rating
+              </span>
+        <span class="product-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star grey"></i>
+              </span>
+              </p>
+      </div>
+      <div class="product-properties">
+        <span class="product-size">
+                <h4>Rented From</h4>
+                <li>Seller:<%= booking.game.user.email %></li>
+                <li>Location:<%= booking.game.user.location %></li> -->
+                <ul class="ul-size">
+                  <li> Seller #insert link and avatar</li>
+                  <li><%= booking.startdate.strftime("%A, %b %d") %></li>
+                  <li><%= booking.enddate.strftime("%A, %b %d") %></li>
+                </ul>
+              </span>
+        <span class="product-color">
+                <h4></h4>
+                <ul class="ul-color">
+                  <li><%= link_to "Show Details", booking_path(booking),{ :class=>"btn btn-primary"} %></li>
+                  <li><%= link_to "Edit", edit_booking_path(booking),{ :class=>"btn btn-primary"} %></li>
+                  <li><%= link_to "Delete", booking_path(booking), { :class=>"btn btn-danger", method: :delete} %></li>
+                </ul>
+              </span>
+        <span class="product-price">
+                <h4></h4>
+              </span>
+      </div>
+    </div>
+  </div>
+<% end %>
