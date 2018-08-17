@@ -75,28 +75,23 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          <h4 class="modal-title" id="myModalLabel">Book a Game</h4>
         </div>
         <div class="modal-body">
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-                <h1>New Rental</h1>
+                <h2><%= @game.name %></h2>
                 <%= simple_form_for [@game, @booking] do |f| %>
-                  <p>Start Date</p>
+                  <h5>Start Date</h5>
                     <%= f.date_field :startdate, style: 'margin-bottom: 20px;' %>
-                  <p>End Date</p>
-                    <%= f.date_field :enddate %>
-                  <p>Price</p>
-                  <%= @game.price %>
-                  <p># insert price </p>
-                  <p>Seller</p>
-                    <%= @game.user.email %>
-                  <p>Location</p>
-                    <%= @game.user.location %>
+                  <h5>End Date</h5>
+                    <%= f.date_field :enddate, style: 'margin-bottom: 20px;' %>
+                  <p>Seller: <%= @game.user.email %> </p>
+                  <p>Location: <%= @game.user.location %> </p>
+
                   <p>#link to map</p>
 
-                  <p>#link to view all bookings</p>
                   <%= f.submit class: 'btn btn-success' %>
                 <% end %>
               </div>
