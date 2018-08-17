@@ -7,7 +7,9 @@
       <h1>Create a new Rever game booking!</h1>
       <%= simple_form_for @booking do |f| %>
         <%= f.input :status %>
-        <%= f.input :place %>
+        <button type="button" class="btn btn-info btn-filter" data-target="Check-Out">Check-Out</button>
+        <button type="button" class="btn btn-info btn-filter" data-target="Check-In">Check-In</button>
+        <button type="button" class="btn btn-info btn-filter" data-target="Contact Seller">Contact Seller</button>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>
