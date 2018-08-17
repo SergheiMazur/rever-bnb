@@ -8,10 +8,12 @@
 
 <div class="container">
   <div class="row">
-    <% (@games + @games + @games + @games + @games).each do |game| %>
-      <div class="col-xs-12 col-sm-4">
-        <%= render "card", game: game %>
-      </div>
+    <% @games.each do |game| %>
+      <%= link_to game_path(game) do %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render "card", game: game %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
