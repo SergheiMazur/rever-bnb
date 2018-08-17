@@ -1,6 +1,4 @@
-
 <h2>Bookings</h2>
-
 
   <div class="container">
     <div class="panel panel-default">
@@ -29,6 +27,7 @@
             <%= link_to bookings_path({ status: "all" }) do %>
               <button type="button" class="btn btn-default btn-filter" data-target="all">All</button>
             <% end %>
+
           </div>
         </div>
       </div>
@@ -38,7 +37,7 @@
         <tbody>
           <% @bookings.each do |booking| %>
             <tr data-status="<%= booking.game.status%>">
-              <td>
+<!--               <td>
                 <div class="ckbox">
                   <input type="checkbox" id="checkbox1">
                   <label for="checkbox1"></label>
@@ -48,36 +47,36 @@
                 <a href="javascript:;" class="star">
                   <i class="glyphicon glyphicon-star"></i>
                 </a>
-              </td>
+              </td> -->
               <td>
                 <div class="media">
                   <a href="#" class="pull-left">
                     <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
                   </a>
                   <div class="media-body">
-                    <span class="media-meta pull-right"><p>Pick up: <%= booking.startdate.strftime("%A, %b %d") %></p>
-                      <p>Drop Off:<%= booking.enddate.strftime("%A, %b %d") %></p></span>
                     <h4 class="title">
                       <%= booking.game.name %>
-                      <% if booking.status == "Check Out" %>
+                      <% if booking.status == "accepted" %>
                         <span class="pull-right available"><%= booking.status%></span>
- <!--                      <% elsif booking.status == "returned" %>
-                        <span class="pull-right returned"><%= booking.game.status%></span>
-                      <% elsif booking.game.status == "in use" %>
-                        <span class="pull-right in use"><%= booking.game.status%></span>
-                      <% elsif booking.game.status == "late" %>
-                        <span class="pull-right late"><%= booking.game.status%></span> -->
                       <% else %>
                         <span class="pull-right late"><%= booking.status%></span>
                       <% end %>
 
+                      <span class="media-meta pull-right" style="margin-right: 30px;">
+                        <p>Pick up: <%= booking.startdate.strftime("%A, %b %d") %></p>
+                        <p>Drop Off:<%= booking.enddate.strftime("%A, %b %d") %></p>
+                      </span>
 
-                    <h5>Rented From</h5>
+
+                    <h5>Rented From</h5>e
                     <p>Seller:<%= booking.game.user.email %></p>
                     <ul class="list-inline">
-
+                      <% if booking.game.user == current_user %>
+                        <li><%= link_to "Accept", booking_path(booking, { status: "accepted"}), method: :patch, class: "btn btn-success"  %></li>
+                        <li><%= link_to "Reject", booking_path(booking, { status: "rejected"}), method: :patch, class: "btn btn-danger"   %></li>
+                      <% end %>
                       <li><%= link_to "Show Details", game_path(booking.game),{ :class=>"btn btn-primary"} %></li>
-                      <li><%= link_to "Edit", edit_booking_path(booking),{ :class=>"btn btn-primary"} %></li>
+                      <li><%# link_to "Edit", edit_booking_path(booking),{ :class=>"btn btn-primary"} %></li>
                       <li><%= link_to "Contact Game Buddy", booking_path(booking), { :class=>"btn btn-danger", method: :delete} %></li>
                     </ul>
                   </div>
