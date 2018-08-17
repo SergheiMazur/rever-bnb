@@ -59,14 +59,16 @@
                       <p>Drop Off:<%= booking.enddate.strftime("%A, %b %d") %></p></span>
                     <h4 class="title">
                       <%= booking.game.name %>
-                      <% if booking.game.status == "available" %>
-                        <span class="pull-right available"><%= booking.game.status%></span>
-                      <% elsif booking.game.status == "returned" %>
+                      <% if booking.status == "Check Out" %>
+                        <span class="pull-right available"><%= booking.status%></span>
+ <!--                      <% elsif booking.status == "returned" %>
                         <span class="pull-right returned"><%= booking.game.status%></span>
                       <% elsif booking.game.status == "in use" %>
                         <span class="pull-right in use"><%= booking.game.status%></span>
                       <% elsif booking.game.status == "late" %>
-                        <span class="pull-right late"><%= booking.game.status%></span>
+                        <span class="pull-right late"><%= booking.game.status%></span> -->
+                      <% else %>
+                        <span class="pull-right late"><%= booking.status%></span>
                       <% end %>
                     </h4>
                     <p class="summary">Description</p>

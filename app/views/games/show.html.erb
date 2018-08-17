@@ -1,4 +1,3 @@
-
 <main class="container">
 <% if @game.name == "Shadow Dancer" %>
   <div class="view hm-white-light jarallax" data-jarallax='{"speed": 0.2}' data-jarallax-video="https://www.youtube.com/watch?v=eHahEPFBSk0">
@@ -48,15 +47,29 @@
 <!-- <p> <%= link_to "See all games", games_path , { :class=>"btn btn-success btn_success"}  %>
 </p> -->
 
+
+
+<!--  Ali --
+
+  <!-- Left Column / Headphones Image<!-- Le
+  <div class="left-column">
+    <%= image_tag "dancer.png", class: "left-column" %>
+  </div>
+
+
+<!-- Right Column -->
+<div class="right-column">
+
+<!-- Product Description -->
+<div class="product-description">
+
+  <h1 style="color:white;"><%=  @game.name %></h1>
+  <p style="color: white; font-size: 20px;"><%= @game.description %></p>
+</div>
+
 <% if @booking.persisted? %>
   <h4>Status: <span class="label label-default"> <%= @booking.status %> </span></h4>
 <% else %>
-  <!-- Button trigger modal -->
-<!--   <button type="button" class="label label-default" data-toggle="modal" data-target="#myModal">
-    Add New Booking
-  </button> -->
-
-  <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -70,23 +83,20 @@
               <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <h1>New Rental</h1>
                 <%= simple_form_for [@game, @booking] do |f| %>
-                <p>Start Date</p>
-                  <%= f.date_field :startdate, style: 'margin-bottom: 20px;' %>
-                <p>End Date</p>
-                  <%= f.date_field :enddate %>
-                <p>Price</p>
-                <%= @game.price %>
-                <p># insert price </p>
-                <p>Seller</p>
-                  <%= @game.user.email %>
-                <p>Location</p>
-                  <%= @game.user.location %>
-                <p>#link to map</p>
+                  <p>Start Date</p>
+                    <%= f.date_field :startdate, style: 'margin-bottom: 20px;' %>
+                  <p>End Date</p>
+                    <%= f.date_field :enddate %>
+                  <p>Price</p>
+                  <%= @game.price %>
+                  <p># insert price </p>
+                  <p>Seller</p>
+                    <%= @game.user.email %>
+                  <p>Location</p>
+                    <%= @game.user.location %>
+                  <p>#link to map</p>
 
-                <p>#link to view all bookings</p>
-                <button class="btn btn-success book-btn" type="button" class="label label-default" data-toggle="modal" data-target="#myModal">View All Bookings</button>
-
-
+                  <p>#link to view all bookings</p>
                   <%= f.submit class: 'btn btn-success' %>
                 <% end %>
               </div>
@@ -96,87 +106,31 @@
       </div>
     </div>
   </div>
-<% end %>
-
-
-
-<!--  Ali --
-
-  <!-- Left Column / Headphones Image<!-- Le
-  <div class="left-column">
-    <%= image_tag "dancer.png", class: "left-column" %>
-  </div>
-
-
-  <!-- Right Column -->
-  <div class="right-column">
-
-    <!-- Product Description -->
-    <div class="product-description">
-
-      <h1 style="color:white;"><%=  @game.name %></h1>
-      <p style="color: white; font-size: 20px;"><%= @game.description %></p>
-    </div>
-
-    <section class="content">
-      <h2 style="color: white;">List of Sellers</h2>
-  <div class="cards">
-    <div class="card">
-      <div class="card__side card__side--front card__side--front-1 front-card-image">
-        <div class="card__description">
-
-            <div>
-              Seller
+  <section class="content">
+    <h2 style="color: white;">List of Sellers</h2>
+    <div class="cards">
+      <% 3.times do %>
+        <div class="card">
+          <div class="card__side card__side--front card__side--front-1 front-card-image">
+            <div class="card__description">
+              <div>
+                Seller
+              </div>
+              <div>
+                $<%= @game.price.to_i + rand(-5..5) %>
+              </div>
             </div>
-
-
-        </div>
-      </div>
-      <div class="card__side card__side--back card__side--back-1">
-        <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
-
-          </svg></div>
-          <button class="btn btn-success book-btn" type="button" class="label label-default" data-toggle="modal" data-target="#myModal">Book</button>
-      </div>
-    </div>
-        <div class="card">
-      <div class="card__side card__side--front card__side--front-1 front-card-image">
-        <div class="card__description">
-          <div>
-            Seller
           </div>
-          <div>
-            $10
+          <div class="card__side card__side--back card__side--back-1">
+            <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
+              </svg></div>
+              <button class="btn btn-success book-btn" type="button" class="label label-default" data-toggle="modal" data-target="#myModal">Book</button>
           </div>
         </div>
-      </div>
-      <div class="card__side card__side--back card__side--back-1">
-        <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
-
-          </svg></div>
-          <button class="btn btn-success book-btn" type="button" class="label label-default" data-toggle="modal" data-target="#myModal">Book</button>
-      </div>
+      <% end %>
     </div>
-        <div class="card">
-      <div class="card__side card__side--front card__side--front-1 front-card-image">
-        <div class="card__description">
-          <div>
-            Seller
-          </div>
-          <div>
-            $10
-          </div>
-        </div>
-      </div>
-      <div class="card__side card__side--back card__side--back-1">
-        <div class="card__description"><svg width="24" height="24" viewBox="0 0 24 24">
-
-          </svg></div>
-          <button class="btn btn-success book-btn" type="button" class="label label-default" data-toggle="modal" data-target="#myModal">Book</button>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+<% end %>
 
 <div id="overlay"></div>
   <div class="container calendar">
