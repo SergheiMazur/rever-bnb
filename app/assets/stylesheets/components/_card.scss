@@ -49,7 +49,7 @@ body {
   transform: rotateY(180deg);
 }
 .card__side--back-1 {
-  background-image: url("dancer.png");
+  background-image: asset-url("dancer.png");
   background-size: cover;
 }
 .card__side--back-2 {
