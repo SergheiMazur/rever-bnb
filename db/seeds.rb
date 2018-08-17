@@ -20,33 +20,33 @@ Game.create(
   name: "Skyrim",
   rating: 4,
   description: "It's amazinggggg. The graphic are just terrific. One of the best.",
-  user_id: 2,
+  user_id: 1,
   )
 
 Game.create(
   name: "Grand Theft Auto V"
   rating: 4,
   description: "Who doesn't like killing people, do some drugs and especially robing some banks withouh living the concequences",
-  user_id: 3,
+  user_id: 1,
   )
 
 Game.create(
   name: "NHL 2K18",
   rating: 3,
   description: "The same as of 2K17 amd all of the previous ones",
-  user_id: 4,
+  user_id: 1,
   )
 
 Game.create(
   name: "Super Mario",
   rating: 4,
   description: "The only thing that I know is that Super sounds American and Mario sounds Italian.",
-  user_id: 5,
+  user_id: 1,
   )
 
 Game.create(
   name: "Titanfall",
   rating: 5,
   description: "Badass robots with amazing gameplay. I would like to have huge robots like that to troll people."
-  user_id: 5,
+  user_id: 1,
   )
