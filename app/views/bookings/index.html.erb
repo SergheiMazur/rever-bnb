@@ -1,22 +1,72 @@
-<h1>bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
 
-<h2>Current Rentals</h2>
-
-<% @bookings.each do |booking| %>
-<li>User:<%= booking.user.email %></li>
- <li><%= booking.startdate.strftime("%A, %b %d") %></li>
- <li><%= booking.enddate.strftime("%A, %b %d") %></li>
-
-  <li>Seller:<%= booking.game.user.email %></li>
-  <li>Location:<%= booking.game.user.location %></li>
+<h2>Bookings</h2>
 
 
-  <hr>
-  <%= link_to "Show Details", booking_path(booking),{ :class=>"btn btn-primary"} %>
-  <%= link_to "Edit", edit_booking_path(booking),{ :class=>"btn btn-primary"} %>
-  <%= link_to "Delete", booking_path(booking), { :class=>"btn btn-danger", method: :delete} %>
-  <% end %>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="pull-right">
+          <div class="btn-group">
+            <button type="button" class="btn btn-success btn-filter" data-target="returned">Returned</button>
+            <button type="button" class="btn btn-warning btn-filter" data-target="inuse">In Use</button>
+            <button type="button" class="btn btn-danger btn-filter" data-target="late">Late</button>
+            <button type="button" class="btn btn-default btn-filter" data-target="all">All</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-container">
+      <table class="table table-filter">
+        <tbody>
+          <% @bookings.each do |booking| %>
+            <tr data-status="<%= booking.game.status%>">
+              <td>
+                <div class="ckbox">
+                  <input type="checkbox" id="checkbox1">
+                  <label for="checkbox1"></label>
+                </div>
+              </td>
+              <td>
+                <a href="javascript:;" class="star">
+                  <i class="glyphicon glyphicon-star"></i>
+                </a>
+              </td>
+              <td>
+                <div class="media">
+                  <a href="#" class="pull-left">
+                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+                  </a>
+                  <div class="media-body">
+                    <span class="media-meta pull-right"><p>Pick up: <%= booking.startdate.strftime("%A, %b %d") %></p>
+                      <p>Drop Off:<%= booking.enddate.strftime("%A, %b %d") %></p></span>
+                    <h4 class="title">
+                      <%= booking.game.name %>
+                      <% if booking.game.status == "available" %>
+                        <span class="pull-right available"><%= booking.game.status%></span>
+                      <% elsif booking.game.status == "returned" %>
+                        <span class="pull-right returned"><%= booking.game.status%></span>
+                      <% elsif booking.game.status == "in use" %>
+                        <span class="pull-right in use"><%= booking.game.status%></span>
+                      <% elsif booking.game.status == "late" %>
+                        <span class="pull-right late"><%= booking.game.status%></span>
+                      <% end %>
+                    </h4>
+                    <p class="summary">Description</p>
+                    <h4>Rented From</h4>
+                    <ul class="list-inline">
+                      <li>Seller:<%= booking.game.user.email %></li>
+                      <li>Location:<%= booking.game.user.location %></li>
+                      <li><%= link_to "Show Details", booking_path(booking),{ :class=>"btn btn-primary"} %></li>
+                      <li><%= link_to "Edit", edit_booking_path(booking),{ :class=>"btn btn-primary"} %></li>
+                      <li><%= link_to "Delete", booking_path(booking), { :class=>"btn btn-danger", method: :delete} %></li>
+                    </ul>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-<h2>Past Rentals</h2>
-<!-- #Add if statement for status returned -->
