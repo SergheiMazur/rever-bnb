@@ -1,11 +1,18 @@
-
 <div class="video-container-index">
   <video id="video" autoplay muted loop src="<%= video_path "ps.mp4" %>"></video>
 </div>
-<<<<<<< HEAD
-=======
 
-<h2>Here are your games</h2>
+<div class="container">
+  <div class="row">
+    <% (@games + @games + @games + @games + @games).each do |game| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= render "card", game: game %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- <h2>Here are your games</h2>
 <%= link_to "New game", new_game_path,{ :class=>"btn btn-primary"} %>
 
 <% @games.each do |game| %>
@@ -30,4 +37,4 @@
   </div>
 
 <% end %>
->>>>>>> e2fd1ab1543bf58ffe412bd62b34c90bd4b2b102
+ -->
