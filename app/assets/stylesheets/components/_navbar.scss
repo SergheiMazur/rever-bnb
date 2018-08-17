@@ -1,3 +1,50 @@
+
+.landing_page_btn {
+  z-index: 3;
+  width: 100px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: black;
+  font-size: 18px;
+
+ a  {
+    transition: border-bottom-color 0.2s ease, color 0.2s ease;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.25);
+    color: #1cb495;
+    text-decoration: none;
+}
+&:hover {
+  text-decoration: none;
+  color: black;
+}
+}
+
+.gam_page_btn {
+  z-index: 3;
+  width: 100px;
+  position: absolute;
+  top: 38px;
+  right: 10px;
+  color: black;
+  font-size: 18px;
+  a  {
+    transition: border-bottom-color 0.2s ease, color 0.2s ease;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.25);
+    color: #1cb495;
+    text-decoration: none;
+}
+&:hover {
+  text-decoration: none;
+  color: black;
+}
+}
+
+
+
+
+
+
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
