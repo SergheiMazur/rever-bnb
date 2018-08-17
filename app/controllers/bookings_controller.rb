@@ -4,7 +4,13 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :destroy, :update]
 
   def index
-    @bookings = Booking.all
+    if params[:status] == "all" || params[:status].blank?
+      @bookings = current_user.bookings
+    elsif params[:status] == "viewmygames"
+      @bookings = Booking.joins(:game).where(games: { user_id: current_user.id })
+    else
+      @bookings = current_user.bookings.joins(:game).where(games: { status: params[:status]})
+    end
   end
 
   def show
@@ -21,10 +27,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.game = @game
-    if @booking.save
-      redirect_to booking_path(@booking)
+    if @booking.save!
+      redirect_to bookings_path
     else
-      render 'new'
+      render 'games/show'
     end
   end
 

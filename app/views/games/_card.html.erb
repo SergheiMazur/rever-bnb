@@ -14,8 +14,9 @@
      </div>
      <div class="card__body">
        <h3 class="card__name"><%= game.name %></h3>
-       <p class="card__job">astronaut & engineer</p>
-       <p class="card__bio"> American astronaut, engineer, and the first person to walk on the Moon.</p>
+       <p class="card__job">On Sega</p>
+       <%= link_to "Show More", game_path(game), class: "card__job" %>
+       <p class="card__bio"></p>
      </div>
 
      <!-- Cool feature for the date at the bottom left? -->

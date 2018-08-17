@@ -7,10 +7,28 @@
       <div class="panel-body">
         <div class="pull-right">
           <div class="btn-group">
-            <button type="button" class="btn btn-success btn-filter" data-target="returned">Returned</button>
-            <button type="button" class="btn btn-warning btn-filter" data-target="inuse">In Use</button>
-            <button type="button" class="btn btn-danger btn-filter" data-target="late">Late</button>
-            <button type="button" class="btn btn-default btn-filter" data-target="all">All</button>
+            <%= link_to bookings_path({ status: "viewmygames" }) do %>
+              <button type="button" class="btn btn-primary btn-filter" data-target="available">View My Games</button>
+            <% end %>
+            <%= link_to bookings_path({ status: "available" }) do %>
+              <button type="button" class="btn btn-info btn-filter" data-target="available">Available</button>
+            <% end %>
+
+            <%= link_to bookings_path({ status: "returned" }) do %>
+              <button type="button" class="btn btn-success btn-filter" data-target="returned">Returned</button>
+            <% end %>
+
+            <%= link_to bookings_path({ status: "inuse" }) do %>
+              <button type="button" class="btn btn-warning btn-filter" data-target="inuse">In Use</button>
+            <% end %>
+
+            <%= link_to bookings_path({ status: "late" }) do %>
+              <button type="button" class="btn btn-danger btn-filter" data-target="late">Late</button>
+            <% end %>
+
+            <%= link_to bookings_path({ status: "all" }) do %>
+              <button type="button" class="btn btn-default btn-filter" data-target="all">All</button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -41,14 +59,16 @@
                       <p>Drop Off:<%= booking.enddate.strftime("%A, %b %d") %></p></span>
                     <h4 class="title">
                       <%= booking.game.name %>
-                      <% if booking.game.status == "available" %>
-                        <span class="pull-right available"><%= booking.game.status%></span>
-                      <% elsif booking.game.status == "returned" %>
+                      <% if booking.status == "Check Out" %>
+                        <span class="pull-right available"><%= booking.status%></span>
+ <!--                      <% elsif booking.status == "returned" %>
                         <span class="pull-right returned"><%= booking.game.status%></span>
                       <% elsif booking.game.status == "in use" %>
                         <span class="pull-right in use"><%= booking.game.status%></span>
                       <% elsif booking.game.status == "late" %>
-                        <span class="pull-right late"><%= booking.game.status%></span>
+                        <span class="pull-right late"><%= booking.game.status%></span> -->
+                      <% else %>
+                        <span class="pull-right late"><%= booking.status%></span>
                       <% end %>
                     </h4>
                     <p class="summary">Description</p>
