@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "games#landing"
   resources :games do
-    resources :bookings, only: [:new, :create ]
+    resources :bookings, only: [:create ]
   end
 
   resources :bookings, only: [:show, :destroy, :edit, :update, :index]

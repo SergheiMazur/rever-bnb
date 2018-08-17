@@ -70,15 +70,15 @@
                       <% else %>
                         <span class="pull-right late"><%= booking.status%></span>
                       <% end %>
-                    </h4>
-                    <p class="summary">Description</p>
-                    <h4>Rented From</h4>
+
+
+                    <h5>Rented From</h5>
+                    <p>Seller:<%= booking.game.user.email %></p>
                     <ul class="list-inline">
-                      <li>Seller:<%= booking.game.user.email %></li>
-                      <li>Location:<%= booking.game.user.location %></li>
-                      <li><%= link_to "Show Details", booking_path(booking),{ :class=>"btn btn-primary"} %></li>
+
+                      <li><%= link_to "Show Details", game_path(booking.game),{ :class=>"btn btn-primary"} %></li>
                       <li><%= link_to "Edit", edit_booking_path(booking),{ :class=>"btn btn-primary"} %></li>
-                      <li><%= link_to "Delete", booking_path(booking), { :class=>"btn btn-danger", method: :delete} %></li>
+                      <li><%= link_to "Contact Game Buddy", booking_path(booking), { :class=>"btn btn-danger", method: :delete} %></li>
                     </ul>
                   </div>
                 </div>

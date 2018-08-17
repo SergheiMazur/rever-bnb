@@ -5,6 +5,13 @@
 .title {
   color: white;
 }
-.pull-right-available {
-  color: white
+
+h1, h2, h3, h4, h5, p, span, ul, li {
+  color: white;
+}
+
+.modal {
+  h1, h2, h3, h4, h5, p, span, ul, li {
+  color: black;
+ }
 }
